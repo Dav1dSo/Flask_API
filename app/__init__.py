@@ -6,7 +6,7 @@ def create_app():
     from .controllers import controller_home
     
     blueprints = [
-        controller_home
+        controller_home 
     ]
     
     for blueprint in blueprints:
