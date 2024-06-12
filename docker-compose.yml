@@ -4,6 +4,11 @@ services:
     build: .
     ports:
       - "5000:5000"
+    volumes:
+      - .:/app 
+    environment:
+      - FLASK_ENV=development
+      - FLASK_APP=app.py
     networks:
       - flask_network
 
@@ -14,6 +19,7 @@ services:
     environment:
       - SWAGGER_JSON=/swagger.json
     volumes:
+      - .:/app 
       - ./swagger.json:/swagger.json:ro
     networks:
       - flask_network
