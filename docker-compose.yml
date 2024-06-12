@@ -24,5 +24,22 @@ services:
     networks:
       - flask_network
 
+  postgres:
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: backoffice
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password-123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - flask_network
+
 networks:
   flask_network:
+
+volumes:
+  pgdata:
